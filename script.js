@@ -136,7 +136,7 @@ function toobar_youdao(){
         toolbar[toolbar.length] = {
             type: "format",
             title: "Voice",
-            icon: "../../tpl/xxwiki/images/toolbar/voice.png",
+            icon: "../../tpl/cxwiki/images/toolbar/voice.png",
             key: "",
             open: "<wrap vo>",
             sample: "WORD",
