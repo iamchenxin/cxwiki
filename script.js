@@ -180,6 +180,9 @@ function voice_you_raw(){
 
 
 function voice_youdao_helper(){
+    if((!faildword)&&(faildword.length<2)){
+        return;
+    }
     var str="http://dict.youdao.com/dictvoice?audio=";
     str += faildword;
 
@@ -220,7 +223,7 @@ function voice_mx(){
     jx.attr('onerror',"voice_youdao_helper()");
     jx.attr('autoplay', 'autoplay');
 //   jQuery("#srcmp3").attr('onerror',"voice_youdao()");
-    jx[0].pause();
+    jx[0].stop();
 
     jx[0].load();
 
