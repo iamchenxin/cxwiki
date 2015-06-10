@@ -52,13 +52,7 @@ END;
         echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
         <?php include('tpl_header.php') ?>
-
-            <div id="xxrightbar">
-                <?php
-               $ffbar= plugin_load("helper","ajaxpeon");
-                $ffbar->make_searchbox();
-                ?>
-            </div>
+            
             <div class="xxcontenthook rawedges" id="xxsidebar">
 
                 <?php if(1): ?><!--[ $showSidebar ] -->
