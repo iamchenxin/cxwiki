@@ -223,9 +223,7 @@ function voice_mx(){
     jx.attr('onerror',"voice_youdao_helper()");
     jx.attr('autoplay', 'autoplay');
 //   jQuery("#srcmp3").attr('onerror',"voice_youdao()");
-    jx[0].stop();
 
-    jx[0].load();
 
     jx[0].play();
 //    alert(str);
@@ -259,29 +257,35 @@ function voice_dict(word){
 
 
 // if (device_class.match(/phone/))  test if is a phone ,see the top
-
-function init_mxyd_voice(dst_client){
-
-    jx = jQuery('<audio/>', { id: 'mxyd_vo', class: 'xxmxyd_vo'});
-
-    jx.attr('onerror',"voice_youdao_helper()");
-
-    jogg=jQuery("<source id='srcogg'  type='audio/ogg'/>");
-    jogg.attr('onerror',"voice_youdao_helper()");
-    jogg.appendTo(jx);
-
-    jmp3 = jQuery("<source id='srcmp3' type='audio/mpeg'/>");
-    jmp3.appendTo(jx);
-
-    jQuery("body").append(jx);
-
+function mxyd_voice_onclick(dst_client,context){
     if(jQuery.cookie("DWremoteinf")==undefined){ // no log ,set to youdao
-        jQuery(dst_client).click(voice_you_raw);
+        jQuery(dst_client,context).click(voice_you_raw);
     }else{
 
-        jQuery(dst_client).click(voice_mx);
+        jQuery(dst_client,context).click(voice_mx);
     }
 }
+
+function init_mxyd_voice(dst_client,init){
+    if(init!="y") {
+        jx = jQuery('<audio/>', {id: 'mxyd_vo', class: 'xxmxyd_vo'});
+
+        jx.attr('onerror', "voice_youdao_helper()");
+
+        jogg = jQuery("<source id='srcogg'  type='audio/ogg'/>");
+        jogg.attr('onerror', "voice_youdao_helper()");
+        jogg.appendTo(jx);
+
+        jmp3 = jQuery("<source id='srcmp3' type='audio/mpeg'/>");
+        jmp3.appendTo(jx);
+
+        jQuery("body").append(jx);
+    }
+
+    mxyd_voice_onclick(dst_client);
+}
+
+
 
 function testxxx(){
     alert( jQuery.cookie("DWremoteinf"));

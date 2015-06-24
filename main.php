@@ -26,11 +26,6 @@ function personal_sidebar()
     $usersidebar = $usersidebar .'sidebar'; //$conf['sidebar']  but i do not kown how to ref global val
     $tmp = tpl_include_page($usersidebar, true, false);
     if(!$tmp){ // use this method to make at mostly time ,tpl_include_page will excute once
-        $userpage="user:".$INFO['client'];
-        echo <<<END
-<a title="$usersidebar" class="wikilink1" href="/$usersidebar?do=edit">create your sidebar</a><br/><span>Link code for sidebar: [[:$usersidebar]]</span><br/>
-<a title="$userpage" class="wikilink1" href="/$userpage?do=edit">create your homepage</a><br/><span>Link code for userpage: [[:$userpage]]</span><br/>
-END;
         tpl_include_page("user:none:".'sidebar', true, false); // user do not create his sidebar.
     }
 }
@@ -52,7 +47,7 @@ END;
         echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
         <?php include('tpl_header.php') ?>
-            
+
             <div class="xxcontenthook rawedges" id="xxsidebar">
 
                 <?php if(1): ?><!--[ $showSidebar ] -->

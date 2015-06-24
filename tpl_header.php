@@ -41,6 +41,7 @@ if (!defined('DOKU_INC')) die();
                 <div id="dokuwiki__usertools">
                     <h3 class="a11y"><?php echo $lang['user_tools']; ?></h3>
                     <ul>
+
                         <?php
                         if (!empty($_SERVER['REMOTE_USER'])) {
                             echo '<li class="user">';
@@ -56,6 +57,20 @@ if (!defined('DOKU_INC')) die();
                     tpl_action('media', true, 'li');
                     tpl_action('index', true, 'li');
                         ?>
+                        <li class="cx_hd_more"><a class="action admin">
+                                <?php
+                                if($INFO['namespace']=="zh"){
+                                    echo "功能";
+                                }else{
+                                    echo "Function";
+                                }
+                                ?>
+                            </a>
+                            <ul >
+                                <li><a href="http://f.qituc.com">forum</a></li>
+                                <li>test2</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             <?php endif ?>
